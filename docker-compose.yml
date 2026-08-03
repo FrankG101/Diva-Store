@@ -1,0 +1,22 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - ${BE_PORT-8000}:${BE_PORT-8000}
+    environment:
+      PORT: ${BE_PORT:-8000}
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - ${FE_PORT-3000}:80
+    depends_on:
+      backend:
+       condition: service_started
+       required: true
