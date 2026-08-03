@@ -1,7 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"DivaStore-backend/internal/handlers"
+	"fmt"
+	"log"
+	"net/http"
+)
+
+const PORT = 8000
 
 func main() {
-	fmt.Println("Hello, world!")
+	mux := http.NewServeMux()
+	handlers.RegisterHandlers(mux)
+
+	log.Println("Starting HTTP server on port", PORT)
+	if err := http.ListenAndServe(fmt.Sprintf(":%d", PORT), mux); err != nil {
+		log.Fatal(err)
+	}
 }
