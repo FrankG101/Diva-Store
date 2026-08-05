@@ -1,4 +1,17 @@
 services:
+  database:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    ports:
+      - ${DB_PORT:-5432}:${DB_PORT:-5432}
+    environment:
+      POSTGRES_USER: ${DB_USER:-user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_DB: ${DB_NAME:-divastore}
+    volumes:
+      - db_data:/var/lib/postgresql
+      - ./backend/internal/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
   backend:
     build:
       context: ./backend
@@ -8,6 +21,15 @@ services:
       - ${BE_PORT-8000}:${BE_PORT-8000}
     environment:
       PORT: ${BE_PORT:-8000}
+      DB_HOST: ${DB_HOST:-database}
+      DB_NAME: ${DB_NAME:-divastore}
+      DB_USER: ${DB_USER:-user}
+      DB_PASSWORD: ${DB_PASSWORD:-password}
+      DB_SSL: ${DB_SSL:-disable}
+    depends_on:
+      database:
+        condition: service_started
+        required: true
 
   frontend:
     build:
@@ -20,3 +42,6 @@ services:
       backend:
        condition: service_started
        required: true
+
+volumes:
+  db_data:
