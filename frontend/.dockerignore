@@ -1,9 +1,0 @@
-.astro/
-.vscode/
-node_modules/
-
-AGENTS.md
-CLAUDE.md
-README.md
-
-.gitignore
