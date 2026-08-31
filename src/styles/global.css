@@ -81,29 +81,16 @@
     animation: marquee 28s linear infinite;
     will-change: transform;
 }
-/*
-.animate-marquee:hover {
-    animation-play-state: paused;
-}*/
 
 .animate-reviews-scroll {
     animation: scrollTrack 36s linear infinite;
     will-change: transform;
 }
-/*
-.reviews-marquee-container:hover .animate-reviews-scroll {
-    animation-play-state: paused;
-}*/
 
 .animate-featured-scroll {
     animation: scrollTrack 36s linear infinite;
     will-change: transform;
 }
-/*
-.featured-marquee-container:hover .animate-featured-scroll,
-.featured-marquee-container:has(:focus-visible) .animate-featured-scroll {
-    animation-play-state: paused;
-}*/
 
 @keyframes langSwitchPulse {
     0% {
