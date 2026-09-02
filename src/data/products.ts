@@ -27,17 +27,6 @@ export const products: Product[] = [
     badgeType: "default",
   },
   {
-    id: "pantalone-sigaretta-sartoriale",
-    name: "Pantalone a Sigaretta Sartoriale",
-    category: "pantaloni",
-    categoryLabel: "Pantaloni",
-    image:
-      "https://images.unsplash.com/photo-1551803091-e20673f15770?w=600&q=80",
-    imageAlt: "Pantalone a Sigaretta Sartoriale",
-    sizes: "S · M · L · XL",
-    price: "€ 89",
-  },
-  {
     id: "pantalone-lino-rilassato",
     name: "Pantalone in Lino Relaxed",
     category: "pantaloni",
@@ -52,30 +41,6 @@ export const products: Product[] = [
   },
 
   // ── Maglie ──
-  {
-    id: "maglia-filato-leggero",
-    name: "Maglia in Filato Leggero",
-    category: "maglie",
-    categoryLabel: "Maglie",
-    image:
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80",
-    imageAlt: "Maglia in Filato Leggero",
-    sizes: "S · M · L",
-    price: "€ 59",
-    badge: "Novità",
-    badgeType: "default",
-  },
-  {
-    id: "cardigan-morbido-estate",
-    name: "Cardigan Morbido Casual",
-    category: "maglie",
-    categoryLabel: "Maglie",
-    image:
-      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80",
-    imageAlt: "Cardigan Morbido Casual",
-    sizes: "Misura Unica",
-    price: "€ 75",
-  },
   {
     id: "maglia-costine-scollo-v",
     name: "Maglia a Costine Scollo a V",
@@ -104,28 +69,6 @@ export const products: Product[] = [
     badge: "Must Have",
     badgeType: "outline",
   },
-  {
-    id: "camicia-puro-lino",
-    name: "Camicia Puro Lino",
-    category: "top",
-    categoryLabel: "Top & Camicie",
-    image:
-      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
-    imageAlt: "Camicia Puro Lino",
-    sizes: "XS · S · M · L",
-    price: "€ 79",
-  },
-  {
-    id: "top-cashmere-misto",
-    name: "Top Spalline Sottili",
-    category: "top",
-    categoryLabel: "Top & Camicie",
-    image:
-      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=600&q=80",
-    imageAlt: "Top Spalline Sottili",
-    sizes: "S · M · L",
-    price: "€ 45",
-  },
 
   // ── Abiti ──
   {
@@ -152,30 +95,6 @@ export const products: Product[] = [
     sizes: "XS · S · M · L",
     price: "€ 129",
   },
-  {
-    id: "abito-chiffon-soft",
-    name: "Abito Chiffon Soft",
-    category: "abiti",
-    categoryLabel: "Abiti",
-    image:
-      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",
-    imageAlt: "Abito Chiffon Soft",
-    sizes: "XS · S · M",
-    price: "€ 95",
-    badge: "Continuativo",
-    badgeType: "outline",
-  },
-  {
-    id: "tubino-sartoriale",
-    name: "Tubino Casual Chic",
-    category: "abiti",
-    categoryLabel: "Abiti",
-    image:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
-    imageAlt: "Tubino Casual Chic",
-    sizes: "S · M · L · XL",
-    price: "€ 109",
-  },
 
   // ── Giacche ──
   {
@@ -190,17 +109,6 @@ export const products: Product[] = [
     price: "€ 139",
     badge: "Novità",
     badgeType: "default",
-  },
-  {
-    id: "cappotto-lana",
-    name: "Giacca Lunga Primaverile",
-    category: "giacche",
-    categoryLabel: "Giacche",
-    image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
-    imageAlt: "Giacca Lunga Primaverile",
-    sizes: "S · M · L",
-    price: "€ 159",
   },
   {
     id: "blazer-minimal-nero",
@@ -238,28 +146,6 @@ export const products: Product[] = [
     imageAlt: "Cintura in Pelle Elegante",
     sizes: "S · M · L",
     price: "€ 35",
-  },
-  {
-    id: "foulard-seta-stampata",
-    name: "Foulard Stampa Marina",
-    category: "accessori",
-    categoryLabel: "Accessori",
-    image:
-      "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=600&q=80",
-    imageAlt: "Foulard Stampa Marina",
-    sizes: "Misura Unica",
-    price: "€ 29",
-  },
-  {
-    id: "orecchini-essenziali-dorati",
-    name: "Orecchini a Cerchio Dorati",
-    category: "accessori",
-    categoryLabel: "Accessori",
-    image:
-      "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80",
-    imageAlt: "Orecchini a Cerchio Dorati",
-    sizes: "Misura Unica",
-    price: "€ 25",
   },
 ];
 

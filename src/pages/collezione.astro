@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
-import { products } from "../data/products";
+// import { products } from "../data/products";
+import { getCollection } from "astro:content";
+
+const rawProducts = await getCollection("products");
+const products = rawProducts.map((p: any) => p.data);
 
 const categories = [
     { label: "Tutti", filter: "tutti", key: "collezione.filter_all" },
@@ -283,7 +287,8 @@ const categories = [
                                 </p>
                                 <h3 class="lookbook-editorial-title">
                                     <span data-i18n="lookbook.look1_title"
-                                        >Praticità Elegante</span>
+                                        >Praticità Elegante</span
+                                    >
                                 </h3>
                                 <div class="lookbook-editorial-line"></div>
                             </div>
@@ -314,7 +319,8 @@ const categories = [
                                 </p>
                                 <h3 class="lookbook-editorial-title">
                                     <span data-i18n="lookbook.look2_title"
-                                        >Freschezza Quotidiana</span>
+                                        >Freschezza Quotidiana</span
+                                    >
                                 </h3>
                                 <div class="lookbook-editorial-line"></div>
                             </div>
@@ -344,7 +350,8 @@ const categories = [
                                 </p>
                                 <h3 class="lookbook-editorial-title">
                                     <span data-i18n="lookbook.look3_title"
-                                        >Brezza Marina &amp; Colore</span>
+                                        >Brezza Marina &amp; Colore</span
+                                    >
                                 </h3>
                                 <div class="lookbook-editorial-line"></div>
                             </div>
@@ -377,7 +384,8 @@ const categories = [
                                 </p>
                                 <h3 class="lookbook-editorial-title">
                                     <span data-i18n="lookbook.look4_title"
-                                        >Stile Senza Tempo</span>
+                                        >Stile Senza Tempo</span
+                                    >
                                 </h3>
                                 <div class="lookbook-editorial-line"></div>
                             </div>
