@@ -247,7 +247,7 @@ export const translations: Record<Lang, Translations> = {
     // ── Cookie Banner ──
     "cookie.banner_title": "Informativa sui Cookie",
     "cookie.banner_desc":
-      "Utilizziamo cookie tecnici necessari per il corretto funzionamento del sito e per memorizzare le tue preferenze. Non utilizziamo cookie di profilazione invasivi.",
+      "Questo sito non utilizza cookie di profilazione, né proprietari né di terze parti. Utilizziamo esclusivamente strumenti e cookie tecnici necessari per il corretto funzionamento e per memorizzare le tue preferenze.",
     "cookie.accept_all": "Accetta Tutti",
     "cookie.accept_necessary": "Solo Necessari",
     "cookie.learn_more": "Scopri di più",
@@ -514,7 +514,7 @@ export const translations: Record<Lang, Translations> = {
     // ── Cookie Banner ──
     "cookie.banner_title": "Cookie Notice",
     "cookie.banner_desc":
-      "We use necessary technical cookies to ensure the website functions properly and to save your preferences. We do not use invasive tracking cookies.",
+      "This website does not use profiling cookies, neither first-party nor third-party. We only use essential technical tools and cookies necessary for site functionality and preferences.",
     "cookie.accept_all": "Accept All",
     "cookie.accept_necessary": "Necessary Only",
     "cookie.learn_more": "Learn more",
@@ -583,20 +583,24 @@ export const reviewTranslationsEn: Record<
   string,
   { body: string; city: string }
 > = {
-  "Sophia M.": {
+  "Chiara B.": {
     city: "Salerno, Italy",
-    body: '"Amart Store in Via dei Mercanti is my go-to place for practical, beautiful clothes. The assistance is always warm and helpful!"',
+    body: '"I always drop by the boutique on Via dei Mercanti when in town! The staff is super sweet and gives honest styling advice. The set I picked up last week is gorgeous and so comfy."',
   },
   "Giulia R.": {
     city: "Rome, Italy",
-    body: '"WhatsApp ordering was super smooth and the package arrived within 24 hours. The fit is comfortable and looks amazing."',
+    body: '"I was a little hesitant to order via WhatsApp at first, but they sent live photos and exact measurements right away. The parcel arrived next day and fits like a dream!"',
   },
   "Martina L.": {
     city: "Naples, Italy",
-    body: '"Practicality and elegance together! I love how these pieces work from morning meetings to evening drinks at the sea."',
+    body: '"I have literally lived in these wide-leg trousers! Fluid fabric that doesn\'t wrinkle in my bag, perfect from office mornings to seaside aperitivo evenings."',
   },
   "Francesca T.": {
+    city: "Milan, Italy",
+    body: '"Found them on Instagram and messaged for a dress before a weekend in Amalfi. Super lovely customer service and the package arrived smelling divine! Got so many compliments."',
+  },
+  "Elena S.": {
     city: "Salerno, Italy",
-    body: '"High quality at honest prices. The fabrics are fresh and you really feel the sea breeze in the style."',
+    body: '"Pieces you can pair easily with sneakers or dressed up with heels. Genuine practicality without sacrificing style, my favorite boutique in Salerno."',
   },
 };

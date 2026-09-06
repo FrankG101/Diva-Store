@@ -8,31 +8,38 @@ export interface Review {
 
 export const reviews: Review[] = [
   {
-    initials: "SM",
-    name: "Sophia M.",
+    initials: "CB",
+    name: "Chiara B.",
     city: "Salerno",
     stars: 5,
-    body: '"Tagli impeccabili e tessuti di rara qualità. La disponibilità durante la scelta in negozio è stata eccellente."',
+    body: '"Passo sempre in negozio in Via dei Mercanti quando sono in centro! Le ragazze sono dolcissime e ti consigliano con sincera premura. Il completo preso la settimana scorsa è comodissimo e fa un figurone."',
   },
   {
     initials: "GR",
     name: "Giulia R.",
     city: "Roma",
     stars: 5,
-    body: '"Servizio ordini su WhatsApp veloce, discreto e puntuale. Il capo è arrivato perfettamente confezionato in 24h."',
+    body: '"Ero un po\' titubante a ordinare su WhatsApp, ma mi hanno mandato subito foto dal vivo e misure in centimetri. Pacco arrivato il giorno dopo, vestibilità perfetta!"',
   },
   {
     initials: "ML",
     name: "Martina L.",
-    city: "Torino",
-    stars: 4,
-    body: '"Un punto di riferimento per chi cerca capi minimali ed eleganti che non passano mai di moda."',
+    city: "Napoli",
+    stars: 5,
+    body: '"I pantaloni palazzo li ho praticamente consumati! Tessuto fluido che non si stropiccia in borsa, perfetti per l\'ufficio la mattina e per l\'aperitivo la sera."',
   },
   {
     initials: "FT",
     name: "Francesca T.",
-    city: "Bologna",
+    city: "Milano",
     stars: 5,
-    body: '"Cura nei dettagli unica. Il blazer acquistato è diventato subito il capo chiave del mio guardaroba."',
+    body: '"Scoperte su Instagram: ho scritto per un abito prima di un weekend in costiera. Servizio super carino e pacco profumato all\'apertura! Ricevuto un sacco di complimenti."',
+  },
+  {
+    initials: "ES",
+    name: "Elena S.",
+    city: "Salerno",
+    stars: 5,
+    body: '"Capi che puoi abbinare sia con le sneakers che con i tacchi. Praticità vera senza rinunciare allo stile, ormai è la mia tappa fissa a Salerno."',
   },
 ];

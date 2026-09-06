@@ -79,6 +79,14 @@ const { title, description, activePage = "home" } = Astro.props;
     <body
         class="font-sans font-light text-navy bg-beige-light antialiased overflow-x-hidden pb-[74px] sm:pb-[84px] pt-[84px] md:pb-0"
     >
+        <!-- ===== SCROLL READING PROGRESS BAR ===== -->
+        <div
+            id="scroll-progress"
+            class="fixed top-0 left-0 h-[2.5px] bg-gradient-to-r from-gold-dark via-gold to-gold-light z-[300] transition-[width] duration-75 ease-out pointer-events-none shadow-[0_0_8px_rgba(212,168,75,0.5)]"
+            style="width: 0%;"
+            aria-hidden="true"
+        ></div>
+
         <!-- ===== HEADER ===== -->
         <header
             class="site-header fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-40px)] max-w-[1100px] h-[58px] sm:h-[64px] bg-navy/90 backdrop-blur-xl border border-gold/30 rounded-full z-[200] flex items-center px-4 sm:px-6 shadow-[0_8px_32px_rgba(27,46,80,0.35)] transition-all duration-300"

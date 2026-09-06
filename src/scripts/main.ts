@@ -267,12 +267,13 @@ function initCarousels(): void {
   });
 }
 
-// ── Header Auto-Hide on Scroll ─────────────────────────
+// ── Header Auto-Hide & Reading Progress on Scroll ───────
 function initHeaderScroll(): void {
   const header = document.querySelector<HTMLElement>(".site-header");
   const filterBar = document.querySelector<HTMLElement>(
     ".collection-filter-bar",
   );
+  const progressBar = document.getElementById("scroll-progress");
   if (!header) return;
 
   let lastY = window.scrollY;
@@ -296,6 +297,17 @@ function initHeaderScroll(): void {
       ticking = true;
       requestAnimationFrame(() => {
         const y = window.scrollY;
+
+        // 1. Reading Progress Bar
+        if (progressBar) {
+          const docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const progress =
+            docHeight > 0 ? Math.min(100, (y / docHeight) * 100) : 0;
+          progressBar.style.width = `${progress}%`;
+        }
+
+        // 2. Header Auto-Hide
         if (y <= 20) {
           setHeaderHidden(false);
         } else if (y > lastY + THRESHOLD) {

@@ -85,6 +85,12 @@ import { reviews } from "../data/reviews";
         >
         </div>
 
+        <!-- Ambient golden light glow -->
+        <div
+            class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gold/15 blur-3xl pointer-events-none animate-orb-pulse"
+        >
+        </div>
+
         <div
             class="relative z-10 w-full max-w-[1200px] mx-auto px-6 pb-16 pt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:items-end"
         >
@@ -112,7 +118,7 @@ import { reviews } from "../data/reviews";
                 <div class="fade-in delay-2 flex flex-col sm:flex-row gap-3.5">
                     <a
                         href="/collezione"
-                        class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gold text-navy-dark rounded-full text-[0.78rem] font-bold tracking-[0.1em] uppercase hover:bg-gold-light transition-all duration-300 min-h-[50px] shadow-[0_8px_24px_rgba(212,168,75,0.35)] hover:scale-105"
+                        class="btn-shimmer inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gold text-navy-dark rounded-full text-[0.78rem] font-bold tracking-[0.1em] uppercase hover:bg-gold-light transition-all duration-300 min-h-[50px] shadow-[0_8px_24px_rgba(212,168,75,0.35)] hover:scale-105 hover:shadow-[0_12px_32px_rgba(212,168,75,0.5)]"
                         data-i18n="hero.cta_collection"
                     >
                         <span>Esplora Collezione</span>
@@ -120,7 +126,7 @@ import { reviews } from "../data/reviews";
                     </a>
                     <a
                         href="/acquista"
-                        class="inline-flex items-center justify-center px-8 py-3.5 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-[0.78rem] font-semibold tracking-[0.1em] uppercase text-white hover:bg-white/20 transition-all duration-300 min-h-[50px]"
+                        class="btn-shimmer inline-flex items-center justify-center px-8 py-3.5 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-[0.78rem] font-semibold tracking-[0.1em] uppercase text-white hover:bg-white/20 transition-all duration-300 min-h-[50px] hover:scale-105"
                         data-i18n="hero.cta_contact"
                     >
                         Vieni a Trovarci
