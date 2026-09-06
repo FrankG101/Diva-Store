@@ -1,13 +1,23 @@
 ---
 import "../styles/global.css";
+import CookieBanner from "../components/CookieBanner.astro";
 
 export interface Props {
     title: string;
     description: string;
-    activePage: "home" | "collezione" | "acquista";
+    activePage?:
+        | "home"
+        | "collezione"
+        | "acquista"
+        | "privacy"
+        | "cookie"
+        | "termini"
+        | "spedizioni-resi"
+        | "legal"
+        | string;
 }
 
-const { title, description, activePage } = Astro.props;
+const { title, description, activePage = "home" } = Astro.props;
 ---
 
 <!doctype html>
@@ -64,7 +74,7 @@ const { title, description, activePage } = Astro.props;
                 } catch (e) {}
             })();
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/netlify-identity-widget@1.9.1/build/netlify-identity-widget.min.js"></script>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     </head>
     <body
         class="font-sans font-light text-navy bg-beige-light antialiased overflow-x-hidden pb-[74px] sm:pb-[84px] pt-[84px] md:pb-0"
@@ -172,7 +182,7 @@ const { title, description, activePage } = Astro.props;
         >
             <div class="w-full max-w-[1200px] mx-auto px-6">
                 <div
-                    class="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr] lg:grid-cols-[3fr_1fr_1fr_1fr] gap-12 border-b border-white/8 pb-12 mb-8"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2.5fr_1fr_1fr_1.2fr_1.3fr] gap-10 lg:gap-8 border-b border-white/8 pb-12 mb-8"
                 >
                     <!-- Brand -->
                     <div>
@@ -366,6 +376,58 @@ const { title, description, activePage } = Astro.props;
                         </ul>
                     </div>
 
+                    <!-- Informazioni & Legale -->
+                    <div>
+                        <h4
+                            class="text-[0.62rem] font-bold tracking-[0.18em] uppercase text-gold mb-5"
+                            data-i18n="footer.legal"
+                        >
+                            Informazioni & Legale
+                        </h4>
+                        <ul class="space-y-3">
+                            <li>
+                                <a
+                                    href="/spedizioni-resi"
+                                    class="text-[0.85rem] text-white/60 hover:text-gold-light transition-colors duration-200"
+                                    data-i18n="footer.shipping_returns"
+                                    >Spedizioni & Resi</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="/termini"
+                                    class="text-[0.85rem] text-white/60 hover:text-gold-light transition-colors duration-200"
+                                    data-i18n="footer.terms"
+                                    >Termini di Vendita</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="/privacy"
+                                    class="text-[0.85rem] text-white/60 hover:text-gold-light transition-colors duration-200"
+                                    data-i18n="footer.privacy">Privacy Policy</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="/cookie"
+                                    class="text-[0.85rem] text-white/60 hover:text-gold-light transition-colors duration-200"
+                                    data-i18n="footer.cookie">Cookie Policy</a
+                                >
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    id="open-cookie-settings-btn"
+                                    class="text-[0.85rem] text-white/45 hover:text-gold-light text-left transition-colors duration-200 cursor-pointer"
+                                    data-i18n="footer.cookie_pref"
+                                >
+                                    Preferenze Cookie
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
                     <!-- Contatti -->
                     <div>
                         <h4
@@ -408,22 +470,60 @@ const { title, description, activePage } = Astro.props;
                     </div>
                 </div>
 
-                <!-- Legal / Dati Aziendali -->
-                <div class="text-[0.72rem] leading-[1.8] text-white/40">
-                    <p>
-                        <strong class="text-white/65">GA.SA.SRLS</strong> — P.IVA:
-                        01670400656 | REA: SA-502580
-                    </p>
-                    <p>Sede Legale: Calata San Vito 1A-1B, 84126 Salerno</p>
-                    <p>PEC: ga.sasrls@pec.it</p>
-                    <p>
-                        Punto Vendita: Via dei Mercanti 131, 84121 Salerno (SA)
-                    </p>
-                    <p class="mt-2 text-white/20" data-i18n="footer.rights">
-                        © 2026 GA.SA.SRLS · Amart Store Salerno. Tutti i diritti
-                        riservati.
-                    </p>
+                <!-- Legal / Dati Aziendali e Link Rapidi -->
+                <div
+                    class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-[0.72rem] leading-[1.8] text-white/40"
+                >
+                    <div>
+                        <p>
+                            <strong class="text-white/65">GA.SA.SRLS</strong> — P.IVA:
+                            01670400656 | REA: SA-502580
+                        </p>
+                        <p>
+                            Sede Legale: Calata San Vito 1A-1B, 84126 Salerno ·
+                            PEC: ga.sasrls@pec.it
+                        </p>
+                        <p>
+                            Punto Vendita: Via dei Mercanti 131, 84121 Salerno
+                            (SA)
+                        </p>
+                    </div>
+                    <div
+                        class="flex flex-wrap items-center gap-x-4 gap-y-2 text-white/55"
+                    >
+                        <a
+                            href="/privacy"
+                            class="hover:text-gold-light transition-colors duration-200"
+                            data-i18n="footer.privacy">Privacy Policy</a
+                        >
+                        <span class="text-white/20">·</span>
+                        <a
+                            href="/cookie"
+                            class="hover:text-gold-light transition-colors duration-200"
+                            data-i18n="footer.cookie">Cookie Policy</a
+                        >
+                        <span class="text-white/20">·</span>
+                        <a
+                            href="/termini"
+                            class="hover:text-gold-light transition-colors duration-200"
+                            data-i18n="footer.terms">Termini e Condizioni</a
+                        >
+                        <span class="text-white/20">·</span>
+                        <a
+                            href="/spedizioni-resi"
+                            class="hover:text-gold-light transition-colors duration-200"
+                            data-i18n="footer.shipping_returns"
+                            >Spedizioni e Resi</a
+                        >
+                    </div>
                 </div>
+                <p
+                    class="mt-4 text-[0.72rem] text-white/25"
+                    data-i18n="footer.rights"
+                >
+                    © 2026 GA.SA.SRLS · Amart Store Salerno. Tutti i diritti
+                    riservati.
+                </p>
             </div>
         </footer>
 
@@ -483,19 +583,11 @@ const { title, description, activePage } = Astro.props;
             </a>
         </nav>
 
+        <!-- ===== COOKIE BANNER ===== -->
+        <CookieBanner />
+
         <script>
             import "../scripts/main.ts";
         </script>
-<script>
-if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-            window.netlifyIdentity.on("login", () => {
-                  document.location.href = "/admin/";
-            });
-        }
-    });
-}
-</script>
     </body>
 </html>

@@ -233,10 +233,38 @@ export const translations: Record<Lang, Translations> = {
       "Amart Store Salerno — Moda donna curata, pratica e versatile nel centro storico di Salerno.",
     "footer.sitemap": "Mappa Sito",
     "footer.collection": "Collezione",
+    "footer.legal": "Informazioni & Legale",
+    "footer.privacy": "Privacy Policy",
+    "footer.cookie": "Cookie Policy",
+    "footer.terms": "Termini e Condizioni",
+    "footer.shipping_returns": "Spedizioni e Resi",
+    "footer.cookie_pref": "Preferenze Cookie",
     "footer.contacts": "Contatti",
     "footer.phone_label": "Telefono & WhatsApp",
     "footer.rights":
       "© 2026 GA.SA.SRLS · Amart Store Salerno. Tutti i diritti riservati.",
+
+    // ── Cookie Banner ──
+    "cookie.banner_title": "Informativa sui Cookie",
+    "cookie.banner_desc":
+      "Utilizziamo cookie tecnici necessari per il corretto funzionamento del sito e per memorizzare le tue preferenze. Non utilizziamo cookie di profilazione invasivi.",
+    "cookie.accept_all": "Accetta Tutti",
+    "cookie.accept_necessary": "Solo Necessari",
+    "cookie.learn_more": "Scopri di più",
+    "cookie.preferences_updated": "Preferenze cookie salvate",
+
+    // ── 404 Page ──
+    "404.badge": "Errore 404 · Amart Store",
+    "404.title": "Pagina Non Trovata",
+    "404.desc":
+      "Sembra che la pagina che stai cercando non sia disponibile, sia stata spostata o il link non sia corretto.",
+    "404.back_home": "Torna alla Home",
+    "404.explore_collection": "Esplora la Collezione",
+    "404.quick_links": "Oppure naviga tra i reparti più richiesti:",
+    "404.ask_wa_title": "Cercavi un capo visto in vetrina o sui social?",
+    "404.ask_wa_desc":
+      "Scrivici direttamente su WhatsApp: il nostro staff in boutique a Salerno verificherà la disponibilità in tempo reale.",
+    "404.contact_wa": "Chiedi su WhatsApp",
 
     // ── WhatsApp Order Template ──
     "wa.order_template":
@@ -472,10 +500,38 @@ export const translations: Record<Lang, Translations> = {
       "Amart Store Salerno — Curated, practical and versatile women’s fashion in the historic heart of Salerno.",
     "footer.sitemap": "Site Navigation",
     "footer.collection": "Collection",
+    "footer.legal": "Legal & Policies",
+    "footer.privacy": "Privacy Policy",
+    "footer.cookie": "Cookie Policy",
+    "footer.terms": "Terms & Conditions",
+    "footer.shipping_returns": "Shipping & Returns",
+    "footer.cookie_pref": "Cookie Preferences",
     "footer.contacts": "Contacts",
     "footer.phone_label": "Phone & WhatsApp",
     "footer.rights":
       "© 2026 GA.SA.SRLS · Amart Store Salerno. All rights reserved.",
+
+    // ── Cookie Banner ──
+    "cookie.banner_title": "Cookie Notice",
+    "cookie.banner_desc":
+      "We use necessary technical cookies to ensure the website functions properly and to save your preferences. We do not use invasive tracking cookies.",
+    "cookie.accept_all": "Accept All",
+    "cookie.accept_necessary": "Necessary Only",
+    "cookie.learn_more": "Learn more",
+    "cookie.preferences_updated": "Cookie preferences saved",
+
+    // ── 404 Page ──
+    "404.badge": "404 Error · Amart Store",
+    "404.title": "Page Not Found",
+    "404.desc":
+      "It seems the page you are looking for is not available, has been moved, or the link is incorrect.",
+    "404.back_home": "Return to Home",
+    "404.explore_collection": "Explore Collection",
+    "404.quick_links": "Or browse our most popular categories:",
+    "404.ask_wa_title": "Looking for a piece seen in our window or on social media?",
+    "404.ask_wa_desc":
+      "Message us directly on WhatsApp: our boutique staff in Salerno will check real-time availability for you.",
+    "404.contact_wa": "Ask on WhatsApp",
 
     // ── WhatsApp Order Template ──
     "wa.order_template":

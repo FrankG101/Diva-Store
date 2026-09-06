@@ -215,13 +215,6 @@
         transition-delay: 0.36s;
     }
 
-    .delay-4 {
-        transition-delay: 0.48s;
-    }
-
-    .delay-5 {
-        transition-delay: 0.6s;
-    }
 
     /* ── Hero entrance ── */
     .hero.is-loaded .hero-bg {

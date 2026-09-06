@@ -21,8 +21,7 @@ export default {
           dark:    '#E8DFD0',
         },
         // Coastal accent colors
-        sea:   { DEFAULT: '#4AABB5', light: '#A8DBE0' },
-        coral: { DEFAULT: '#E8705A', light: '#F4A897' },
+        sea:   { DEFAULT: '#4AABB5' },
         sand:  { DEFAULT: '#C8A96A', light: '#EDD9A3' },
       },
       fontFamily: {
@@ -32,9 +31,6 @@ export default {
       letterSpacing: {
         'widest-2': '0.12em',
         'widest-3': '0.18em',
-      },
-      borderRadius: {
-        'wave': '60% 40% 60% 40% / 40% 60% 40% 60%',
       },
       // Le keyframe (marquee, reviewsScroll) sono definite in global.css
     },
