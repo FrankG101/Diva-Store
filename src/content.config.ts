@@ -4,7 +4,6 @@ import { glob } from "astro/loaders";
 const productsCollection = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/products" }),
   schema: z.object({
-    id: z.string(),
     name: z.string(),
     category: z.enum([
       "pantaloni",
@@ -14,11 +13,9 @@ const productsCollection = defineCollection({
       "giacche",
       "accessori",
     ]),
-    categoryLabel: z.string(),
     image: z.string(),
-    imageAlt: z.string(),
     sizes: z.string(),
-    price: z.string(),
+    price: z.number(),
     badge: z.string().optional(),
     badgeType: z.enum(["default", "outline"]).optional(),
   }),

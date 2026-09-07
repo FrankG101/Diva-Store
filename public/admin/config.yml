@@ -14,10 +14,9 @@ collections:
     create: true
     extension: "json"
     format: "json"
-    slug: "{{id}}"
+    slug: "{{name}}"
     identifier_field: "name"
     fields:
-      - { label: "ID", name: "id", widget: "string" }
       - { label: "Nome", name: "name", widget: "string" }
       - label: "Categoria"
         name: "category"
@@ -29,29 +28,21 @@ collections:
           - { label: "Abiti", value: "abiti" }
           - { label: "Giacche", value: "giacche" }
           - { label: "Accessori", value: "accessori" }
-      - {
-          label: "Etichetta Categoria",
-          name: "categoryLabel",
-          widget: "string",
-        }
       - { label: "Immagine", name: "image", widget: "image" }
-      - {
-          label: "Testo Alternativo Immagine",
-          name: "imageAlt",
-          widget: "string",
-        }
       - { label: "Taglie (es. S, M, L)", name: "sizes", widget: "string" }
-      - { label: "Prezzo", name: "price", widget: "string" }
       - {
-          label: "Badge (Opzionale)",
-          name: "badge",
-          widget: "string",
-          required: false,
+          label: "Prezzo",
+          name: "price",
+          widget: "number",
+          valueType: "float",
+          step: 0.01,
+          min: 0.01,
         }
-      - label: "Tipo Badge"
+      - { label: "Badge", name: "badge", widget: "string", required: false }
+      - label: "Stile Badge"
         name: "badgeType"
         widget: "select"
         required: false
         options:
-          - { label: "Default", value: "default" }
-          - { label: "Outline", value: "outline" }
+          - { label: "Blu", value: "default" }
+          - { label: "Oro", value: "outline" }
