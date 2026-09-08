@@ -26,7 +26,7 @@ export const reviews: Review[] = [
     name: "Martina L.",
     city: "Napoli",
     stars: 5,
-    body: '"I pantaloni palazzo li ho praticamente consumati! Tessuto fluido che non si stropiccia in borsa, perfetti per l\'ufficio la mattina e per l\'aperitivo la sera."',
+    body: "\"I pantaloni palazzo li ho praticamente consumati! Tessuto fluido che non si stropiccia in borsa, perfetti per l'ufficio la mattina e per l'aperitivo la sera.\"",
   },
   {
     initials: "FT",
@@ -41,5 +41,26 @@ export const reviews: Review[] = [
     city: "Salerno",
     stars: 5,
     body: '"Capi che puoi abbinare sia con le sneakers che con i tacchi. Praticità vera senza rinunciare allo stile, ormai è la mia tappa fissa a Salerno."',
+  },
+  {
+    initials: "AS",
+    name: "Anna S.",
+    city: "Avellino",
+    stars: 5,
+    body: '"Di tutto e di più. In questo negozio ho trovato abiti, costumi, ciabatte e finanche parei…tutto l’occorrente per passare una frizzante estate!!"',
+  },
+  {
+    initials: "LG",
+    name: "Luana G.",
+    city: "Bologna",
+    stars: 5,
+    body: '"Negozio ottimo, abbigliamento alla moda, versatile e molto conveniente, la commessa è molto gentile…consigliato!!"',
+  },
+  {
+    initials: "MV",
+    name: "Manuela V.",
+    city: "Salerno",
+    stars: 5,
+    body: '"Negozio ottimo, abbigliamento alla moda, versatile e molto conveniente, la commessa è molto gentile…consigliato!!"',
   },
 ];
