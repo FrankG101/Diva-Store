@@ -142,6 +142,13 @@ export function setLanguage(lang: Lang, animate = true): void {
 
   // 6. Refresh Store Status with localized labels
   initStoreStatus();
+
+  // 7. Update 404 WhatsApp link query if on 404 page
+  const btn404Wa = document.getElementById("btn-404-wa");
+  if (btn404Wa && translations[lang]["404.wa_query"]) {
+    const text = encodeURIComponent(translations[lang]["404.wa_query"]);
+    btn404Wa.setAttribute("href", `https://wa.me/${WHATSAPP}?text=${text}`);
+  }
 }
 
 function updateLangBubble(lang: Lang, animate = true): void {
@@ -595,12 +602,45 @@ function initProductFilter(): void {
     if (targetTab) applyFilter(currentHash, targetTab, true);
   });
 
+  // ── Mobile Scroll Fade Indicators ──
+  const fadeLeft = document.getElementById("filter-fade-left");
+  const fadeRight = document.getElementById("filter-fade-right");
+
+  const updateScrollFades = () => {
+    if (!tabBar) return;
+    const maxScroll = tabBar.scrollWidth - tabBar.clientWidth;
+    if (maxScroll <= 8) {
+      if (fadeLeft) fadeLeft.style.opacity = "0";
+      if (fadeRight) fadeRight.style.opacity = "0";
+      tabBar.classList.remove("fade-both", "fade-left");
+      tabBar.classList.add("fade-none");
+      return;
+    }
+    const sl = tabBar.scrollLeft;
+    const hasLeft = sl > 8;
+    const hasRight = sl < maxScroll - 8;
+
+    if (fadeLeft) fadeLeft.style.opacity = hasLeft ? "1" : "0";
+    if (fadeRight) fadeRight.style.opacity = hasRight ? "1" : "0";
+
+    tabBar.classList.remove("fade-both", "fade-left", "fade-none");
+    if (hasLeft && hasRight) {
+      tabBar.classList.add("fade-both");
+    } else if (hasLeft) {
+      tabBar.classList.add("fade-left");
+    }
+  };
+
+  tabBar.addEventListener("scroll", updateScrollFades, { passive: true });
+  setTimeout(updateScrollFades, 80);
+
   window.addEventListener(
     "resize",
     () => {
       const activeTab =
         tabs.find((t) => t.classList.contains("active")) || tabs[0];
       if (activeTab) updateBubble(activeTab, false);
+      updateScrollFades();
     },
     { passive: true },
   );

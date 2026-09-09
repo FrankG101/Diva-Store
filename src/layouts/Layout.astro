@@ -456,10 +456,33 @@ const { title, description, activePage = "home" } = Astro.props;
                             </li>
                             <li>
                                 <a
-                                    href="/acquista"
-                                    class="text-[0.85rem] text-white/60 hover:text-gold-light transition-colors duration-200"
-                                    >Via dei Mercanti 131, Salerno</a
+                                    href="https://maps.google.com/?q=Via+dei+Mercanti+131,+84121+Salerno"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-[0.85rem] text-white/60 hover:text-gold-light transition-colors duration-200 inline-flex items-center gap-1.5"
+                                    title="Apri su Google Maps"
                                 >
+                                    <span>Via dei Mercanti 131, Salerno</span>
+                                    <svg
+                                        class="w-3.5 h-3.5 opacity-60 flex-shrink-0"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        aria-hidden="true"
+                                        ><path
+                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                                        ></path><polyline
+                                            points="15 3 21 3 21 9"
+                                        ></polyline><line
+                                            x1="10"
+                                            y1="14"
+                                            x2="21"
+                                            y2="3"></line></svg
+                                    >
+                                </a>
                             </li>
                             <li>
                                 <span class="text-[0.8rem] text-white/40"
@@ -492,8 +515,14 @@ const { title, description, activePage = "home" } = Astro.props;
                             PEC: ga.sasrls@pec.it
                         </p>
                         <p>
-                            Punto Vendita: Via dei Mercanti 131, 84121 Salerno
-                            (SA)
+                            Punto Vendita: <a
+                                href="https://maps.google.com/?q=Via+dei+Mercanti+131,+84121+Salerno"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="hover:text-gold-light underline underline-offset-2 transition-colors duration-200"
+                                title="Apri su Google Maps"
+                                >Via dei Mercanti 131, 84121 Salerno (SA)</a
+                            >
                         </p>
                     </div>
                     <div

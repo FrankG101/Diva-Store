@@ -366,6 +366,93 @@
         will-change: left, width;
     }
 
+    /* ── Mobile Filter Bar Scroll Fades & Alpha Mask ── */
+    @media (max-width: 767px) {
+        #filter-tabs {
+            -webkit-mask-image: linear-gradient(
+                to right,
+                black 0%,
+                black calc(100% - 44px),
+                rgba(0, 0, 0, 0.45) calc(100% - 20px),
+                transparent 100%
+            );
+            mask-image: linear-gradient(
+                to right,
+                black 0%,
+                black calc(100% - 44px),
+                rgba(0, 0, 0, 0.45) calc(100% - 20px),
+                transparent 100%
+            );
+            transition: -webkit-mask-image 0.25s ease, mask-image 0.25s ease;
+        }
+
+        #filter-tabs.fade-both {
+            -webkit-mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(0, 0, 0, 0.45) 12px,
+                black 24px,
+                black calc(100% - 44px),
+                rgba(0, 0, 0, 0.45) calc(100% - 20px),
+                transparent 100%
+            );
+            mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(0, 0, 0, 0.45) 12px,
+                black 24px,
+                black calc(100% - 44px),
+                rgba(0, 0, 0, 0.45) calc(100% - 20px),
+                transparent 100%
+            );
+        }
+
+        #filter-tabs.fade-left {
+            -webkit-mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(0, 0, 0, 0.45) 12px,
+                black 24px,
+                black 100%
+            );
+            mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(0, 0, 0, 0.45) 12px,
+                black 24px,
+                black 100%
+            );
+        }
+
+        #filter-tabs.fade-none {
+            -webkit-mask-image: none;
+            mask-image: none;
+        }
+    }
+
+    .filter-fade-left {
+        background: linear-gradient(
+            to right,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.75) 14px,
+            rgba(255, 255, 255, 0) 100%
+        );
+        border-top-left-radius: 9999px;
+        border-bottom-left-radius: 9999px;
+    }
+
+    .filter-fade-right {
+        background: linear-gradient(
+            to left,
+            #ffffff 0%,
+            #ffffff 10px,
+            rgba(255, 255, 255, 0.7) 24px,
+            rgba(255, 255, 255, 0) 100%
+        );
+        border-top-right-radius: 9999px;
+        border-bottom-right-radius: 9999px;
+    }
+
     .tab-btn {
         position: relative;
         z-index: 1;
@@ -518,7 +605,7 @@
     inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 22px 20px 20px;
     background: linear-gradient(
         to bottom,
@@ -526,56 +613,6 @@
         rgba(11, 19, 38, 0.04) 40%,
         rgba(11, 19, 38, 0.72) 100%
     );
-}
-
-/* Top row: number + category tag */
-.lookbook-editorial-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-.lookbook-editorial-num {
-    font-family: var(--font-serif, "Cormorant Garamond", serif);
-    font-style: italic;
-    font-weight: 300;
-    font-size: 3rem;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.18);
-    user-select: none;
-    transition:
-        color 0.4s ease,
-        transform 0.4s ease;
-    display: block;
-}
-
-.lookbook-editorial-inner.group:hover .lookbook-editorial-num {
-    color: rgba(197, 160, 89, 0.55);
-    transform: translateY(-2px);
-}
-
-.lookbook-editorial-tag {
-    font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.65);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    padding: 4px 10px;
-    border-radius: 999px;
-    transition:
-        background 0.3s,
-        color 0.3s,
-        border-color 0.3s;
-}
-
-.lookbook-editorial-inner.group:hover .lookbook-editorial-tag {
-    background: rgba(197, 160, 89, 0.18);
-    border-color: rgba(197, 160, 89, 0.5);
-    color: #c5a059;
 }
 
 /* Bottom: subtitle + title + animated line */
