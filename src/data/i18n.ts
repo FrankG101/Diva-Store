@@ -1199,4 +1199,16 @@ export const reviewTranslationsEn: Record<
     city: "Salerno, Italy",
     body: '"Pieces you can pair easily with sneakers or dressed up with heels. Genuine practicality without sacrificing style, my favorite boutique in Salerno."',
   },
+  "Anna S.": {
+    city: "Avellino, Italy",
+    body: '"Everything and more! In this boutique I found dresses, swimwear, slides, and even sarongs... everything needed for a sparkling summer!!"',
+  },
+  "Luana G.": {
+    city: "Bologna, Italy",
+    body: '"Wonderful store! Fashionable, versatile, and very affordable clothing. The sales assistant is so kind... highly recommended!!"',
+  },
+  "Manuela V.": {
+    city: "Salerno, Italy",
+    body: '"A true gem in the heart of Via dei Mercanti. Trendy pieces, fine fabrics, and a rare, elegant welcome. Highly recommended!"',
+  },
 };

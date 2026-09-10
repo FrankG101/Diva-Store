@@ -44,7 +44,8 @@ const { title, description, activePage = "home" } = Astro.props;
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
 
         <script is:inline>
             // Early smartphone & language auto-detection to prevent flash
@@ -74,10 +75,9 @@ const { title, description, activePage = "home" } = Astro.props;
                 } catch (e) {}
             })();
         </script>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     </head>
     <body
-        class="font-sans font-light text-navy bg-beige-light antialiased overflow-x-hidden pb-[74px] sm:pb-[84px] pt-[84px] md:pb-0"
+        class="font-sans font-light text-navy bg-beige-light antialiased overflow-x-hidden pt-[84px]"
     >
         <!-- ===== SCROLL READING PROGRESS BAR ===== -->
         <div
@@ -186,7 +186,7 @@ const { title, description, activePage = "home" } = Astro.props;
 
         <!-- ===== FOOTER ===== -->
         <footer
-            class="bg-navy text-white/50 pt-14 pb-[calc(64px+74px)] md:pb-14 border-t border-gold/15"
+            class="bg-navy text-white/50 pt-14 pb-[calc(58px+8px)] sm:pb-[calc(64px+8px)] md:pb-14 border-t border-gold/15"
         >
             <div class="w-full max-w-[1200px] mx-auto px-6">
                 <div
@@ -563,6 +563,9 @@ const { title, description, activePage = "home" } = Astro.props;
                 </p>
             </div>
         </footer>
+
+        <!-- Spacer mobile: estende il colore navy del footer nello spazio del body padding sotto la bottom bar -->
+        <div class="md:hidden bg-navy h-[66px] sm:h-[72px]" aria-hidden="true"></div>
 
         <!-- ===== BOTTOM BAR (mobile navigation) ===== -->
         <nav

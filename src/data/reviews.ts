@@ -46,14 +46,14 @@ export const reviews: Review[] = [
     initials: "AS",
     name: "Anna S.",
     city: "Avellino",
-    stars: 5,
+    stars: 4,
     body: '"Di tutto e di più. In questo negozio ho trovato abiti, costumi, ciabatte e finanche parei…tutto l’occorrente per passare una frizzante estate!!"',
   },
   {
     initials: "LG",
     name: "Luana G.",
     city: "Bologna",
-    stars: 5,
+    stars: 4,
     body: '"Negozio ottimo, abbigliamento alla moda, versatile e molto conveniente, la commessa è molto gentile…consigliato!!"',
   },
   {
@@ -61,6 +61,6 @@ export const reviews: Review[] = [
     name: "Manuela V.",
     city: "Salerno",
     stars: 5,
-    body: '"Negozio ottimo, abbigliamento alla moda, versatile e molto conveniente, la commessa è molto gentile…consigliato!!"',
+    body: '"Una vera perla nel cuore di Via dei Mercanti. Capi di tendenza, tessuti curati e un\'accoglienza rara ed elegante. Consigliatissimo!"',
   },
 ];

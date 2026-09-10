@@ -231,48 +231,6 @@ function initI18n(): void {
   );
 }
 
-// ── Carousel ───────────────────────────────────────────
-function initCarousels(): void {
-  $$(".carousel-wrap").forEach((wrapper) => {
-    const track = $(".carousel-track", wrapper);
-    const btnPrev = $("[data-carousel-prev]", wrapper);
-    const btnNext = $("[data-carousel-next]", wrapper);
-    if (!track) return;
-
-    const scrollAmount = () => {
-      const card = track.children[0] as HTMLElement | undefined;
-      return card ? (card.offsetWidth + 16) * 2 : 520;
-    };
-
-    btnPrev?.addEventListener("click", () =>
-      track.scrollBy({ left: -scrollAmount(), behavior: "smooth" }),
-    );
-    btnNext?.addEventListener("click", () =>
-      track.scrollBy({ left: scrollAmount(), behavior: "smooth" }),
-    );
-
-    let startX = 0;
-    track.addEventListener(
-      "touchstart",
-      (e) => {
-        startX = (e as TouchEvent).touches[0].clientX;
-      },
-      { passive: true },
-    );
-    track.addEventListener(
-      "touchend",
-      (e) => {
-        const diff = startX - (e as TouchEvent).changedTouches[0].clientX;
-        if (Math.abs(diff) > 40)
-          track.scrollBy({
-            left: diff > 0 ? scrollAmount() / 2 : -scrollAmount() / 2,
-            behavior: "smooth",
-          });
-      },
-      { passive: true },
-    );
-  });
-}
 
 // ── Header Auto-Hide & Reading Progress on Scroll ───────
 function initHeaderScroll(): void {
@@ -581,7 +539,15 @@ function initProductFilter(): void {
     });
   });
 
-  const initialHash = window.location.hash.replace("#", "").toLowerCase();
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramFilter = (
+    urlParams.get("categoria") ||
+    urlParams.get("category") ||
+    urlParams.get("filter") ||
+    ""
+  ).toLowerCase();
+  const initialHash =
+    window.location.hash.replace("#", "").toLowerCase() || paramFilter;
   const matchedTab = tabs.find((t) => t.dataset.filter === initialHash);
   if (matchedTab) {
     applyFilter(initialHash, matchedTab, false);
@@ -660,7 +626,10 @@ function initOrderButtons(): void {
       "Salve, Desidero richiedere informazioni su disponibilità e taglie per: {product} {price}, e se è disponibile per la spedizione o per il ritiro in negozio. Grazie!";
 
     const productText = name.trim();
-    const priceText = price.trim();
+    let priceText = price.trim();
+    if (priceText && !priceText.includes("€")) {
+      priceText = `(${priceText}€)`;
+    }
 
     const messageText = template
       .replace("{product}", productText)
@@ -709,7 +678,6 @@ function initFeaturedScrollPause(): void {
 document.addEventListener("DOMContentLoaded", () => {
   initI18n();
   initHeaderScroll();
-  initCarousels();
   initFadeIn();
   initModals();
   initStoreStatus();
