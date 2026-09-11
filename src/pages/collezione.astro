@@ -1,10 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
-import { getCollection } from "astro:content";
-
-const rawProducts = await getCollection("products");
-const products = rawProducts.map((p) => ({ id: p.id, ...p.data }));
+import { products } from "../data/products.ts";
 
 const categories = [
     { label: "Tutti", filter: "tutti", key: "collezione.filter_all" },
@@ -67,8 +64,7 @@ const categories = [
                 id="filter-fade-left"
                 class="filter-fade-left absolute left-0 top-0 bottom-0 w-8 pointer-events-none z-20 opacity-0 transition-opacity duration-300 md:hidden"
                 aria-hidden="true"
-            >
-            </div>
+            ></div>
 
             <!-- Scrollable capsule -->
             <div
@@ -77,19 +73,17 @@ const categories = [
             >
                 <div id="filter-bubble" aria-hidden="true"></div>
 
-                {
-                    categories.map((t, i) => (
-                        <button
-                            class={`tab-btn relative z-10 flex-shrink-0 px-4 sm:px-5 py-2 rounded-full font-sans text-[0.72rem] font-bold tracking-[0.08em] uppercase cursor-pointer transition-colors duration-200 min-h-[36px] whitespace-nowrap ${i === 0 ? "active text-white" : "text-slate-600 hover:text-navy"}`}
-                            data-filter={t.filter}
-                            data-i18n={t.key}
-                            role="tab"
-                            aria-selected={i === 0 ? "true" : "false"}
-                        >
-                            <span class="tab-label">{t.label}</span>
-                        </button>
-                    ))
-                }
+                {categories.map((t, i) => (
+                    <button
+                        class={`tab-btn relative z-10 flex-shrink-0 px-4 sm:px-5 py-2 rounded-full font-sans text-[0.72rem] font-bold tracking-[0.08em] uppercase cursor-pointer transition-colors duration-200 min-h-[36px] whitespace-nowrap ${i === 0 ? "active text-white" : "text-slate-600 hover:text-navy"}`}
+                        data-filter={t.filter}
+                        data-i18n={t.key}
+                        role="tab"
+                        aria-selected={i === 0 ? "true" : "false"}
+                    >
+                        <span class="tab-label">{t.label}</span>
+                    </button>
+                ))}
             </div>
 
             <!-- Right fade overlay (mobile) -->
@@ -97,8 +91,7 @@ const categories = [
                 id="filter-fade-right"
                 class="filter-fade-right absolute right-0 top-0 bottom-0 w-12 pointer-events-none z-20 opacity-100 transition-opacity duration-300 md:hidden"
                 aria-hidden="true"
-            >
-            </div>
+            ></div>
         </div>
     </div>
 
@@ -113,25 +106,23 @@ const categories = [
                 class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 relative min-h-[320px]"
                 id="products-grid"
             >
-                {
-                    products.map((p, i) => (
-                        <div
-                            class={`product-item-wrap fade-in ${i % 4 === 1 ? "delay-1" : i % 4 === 2 ? "delay-2" : i % 4 === 3 ? "delay-3" : ""}`}
-                            data-category={p.category}
-                        >
-                            <ProductCard
-                                id={p.id}
-                                name={p.name}
-                                category={p.category}
-                                image={p.image}
-                                sizes={p.sizes}
-                                price={p.price}
-                                badge={p.badge}
-                                badgeType={p.badgeType}
-                            />
-                        </div>
-                    ))
-                }
+                {products.map((p, i) => (
+                    <div
+                        class={`product-item-wrap fade-in ${i % 4 === 1 ? "delay-1" : i % 4 === 2 ? "delay-2" : i % 4 === 3 ? "delay-3" : ""}`}
+                        data-category={p.category}
+                    >
+                        <ProductCard
+                            id={p.id}
+                            name={p.name}
+                            category={p.category}
+                            image={p.image}
+                            sizes={p.sizes}
+                            price={p.price}
+                            badge={p.badge}
+                            badgeType={p.badgeType}
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     </section>
@@ -168,12 +159,9 @@ const categories = [
                 >
                     <span data-i18n="lookbook.scroll_hint">Scorri</span>
                     <span class="lookbook-scroll-arrow inline-flex gap-0.5">
-                        <span class="w-1 h-1 rounded-full bg-gold-dark/60"
-                        ></span>
-                        <span class="w-1 h-1 rounded-full bg-gold-dark/40"
-                        ></span>
-                        <span class="w-1 h-1 rounded-full bg-gold-dark/20"
-                        ></span>
+                        <span class="w-1 h-1 rounded-full bg-gold-dark/60"></span>
+                        <span class="w-1 h-1 rounded-full bg-gold-dark/40"></span>
+                        <span class="w-1 h-1 rounded-full bg-gold-dark/20"></span>
                     </span>
                 </div>
             </div>
@@ -186,64 +174,62 @@ const categories = [
         >
             <div class="flex-shrink-0 w-6" aria-hidden="true"></div>
 
-            {
-                [
-                    {
-                        src: "/images/lookbook/01-verde.webp",
-                        alt: "Look Amart 1 — Abito verde oliva con ricami",
-                        label: "Eleganza Naturale",
-                        key: "lookbook.look1_title",
-                        num: "01",
-                    },
-                    {
-                        src: "/images/lookbook/02-blu.webp",
-                        alt: "Look Amart 2 — Abito boho blu con ricami bianchi",
-                        label: "Sogno Mediterraneo",
-                        key: "lookbook.look2_title",
-                        num: "02",
-                    },
-                    {
-                        src: "/images/lookbook/03-fucsia.webp",
-                        alt: "Look Amart 3 — Abito mini fucsia paisley",
-                        label: "Bohème Paisley",
-                        key: "lookbook.look3_title",
-                        num: "03",
-                    },
-                    {
-                        src: "/images/lookbook/04-nero.webp",
-                        alt: "Look Amart 4 — Abito maxi nero con ricami etnici",
-                        label: "Spirito Nomade",
-                        key: "lookbook.look4_title",
-                        num: "04",
-                    },
-                ].map((item, i) => (
-                    <div
-                        class="lookbook-card flex-shrink-0 relative overflow-hidden rounded-2xl group"
-                        style="width:64vw;max-width:270px;height:100vw;max-height:460px"
-                    >
-                        <img
-                            src={item.src}
-                            alt={item.alt}
-                            loading="lazy"
-                            class="w-full h-full object-cover object-top transition-transform duration-700 group-active:scale-[1.04]"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/10 to-transparent" />
-                        <div class="absolute bottom-0 left-0 right-0 p-4">
-                            <div class="backdrop-blur-sm bg-white/8 border border-white/15 rounded-xl px-3.5 py-2.5">
-                                <p class="text-[0.6rem] font-semibold tracking-[0.22em] uppercase text-gold-light mb-0.5">
-                                    Look {item.num}
-                                </p>
-                                <p
-                                    class="text-[0.84rem] font-serif font-light text-white leading-snug"
-                                    data-i18n={item.key}
-                                >
-                                    {item.label}
-                                </p>
-                            </div>
+            {[
+                {
+                    src: "/images/lookbook/01-verde.webp",
+                    alt: "Look Amart 1 — Abito verde oliva con ricami",
+                    label: "Eleganza Naturale",
+                    key: "lookbook.look1_title",
+                    num: "01",
+                },
+                {
+                    src: "/images/lookbook/02-blu.webp",
+                    alt: "Look Amart 2 — Abito boho blu con ricami bianchi",
+                    label: "Sogno Mediterraneo",
+                    key: "lookbook.look2_title",
+                    num: "02",
+                },
+                {
+                    src: "/images/lookbook/03-fucsia.webp",
+                    alt: "Look Amart 3 — Abito mini fucsia paisley",
+                    label: "Bohème Paisley",
+                    key: "lookbook.look3_title",
+                    num: "03",
+                },
+                {
+                    src: "/images/lookbook/04-nero.webp",
+                    alt: "Look Amart 4 — Abito maxi nero con ricami etnici",
+                    label: "Spirito Nomade",
+                    key: "lookbook.look4_title",
+                    num: "04",
+                },
+            ].map((item, i) => (
+                <div
+                    class="lookbook-card flex-shrink-0 relative overflow-hidden rounded-2xl group"
+                    style="width:64vw;max-width:270px;height:100vw;max-height:460px"
+                >
+                    <img
+                        src={item.src}
+                        alt={item.alt}
+                        loading="lazy"
+                        class="w-full h-full object-cover object-top transition-transform duration-700 group-active:scale-[1.04]"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/10 to-transparent" />
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="backdrop-blur-sm bg-white/8 border border-white/15 rounded-xl px-3.5 py-2.5">
+                            <p class="text-[0.6rem] font-semibold tracking-[0.22em] uppercase text-gold-light mb-0.5">
+                                Look {item.num}
+                            </p>
+                            <p
+                                class="text-[0.84rem] font-serif font-light text-white leading-snug"
+                                data-i18n={item.key}
+                            >
+                                {item.label}
+                            </p>
                         </div>
                     </div>
-                ))
-            }
+                </div>
+            ))}
 
             <div class="flex-shrink-0 w-6"></div>
         </div>
@@ -254,25 +240,15 @@ const categories = [
             id="lookbook-dots"
             aria-hidden="true"
         >
-            <span
-                class="lookbook-dot w-5 h-[3px] rounded-full bg-navy transition-all duration-300"
-            ></span>
-            <span
-                class="lookbook-dot w-2 h-[3px] rounded-full bg-navy/25 transition-all duration-300"
-            ></span>
-            <span
-                class="lookbook-dot w-2 h-[3px] rounded-full bg-navy/25 transition-all duration-300"
-            ></span>
-            <span
-                class="lookbook-dot w-2 h-[3px] rounded-full bg-navy/25 transition-all duration-300"
-            ></span>
+            <span class="lookbook-dot w-5 h-[3px] rounded-full bg-navy transition-all duration-300"></span>
+            <span class="lookbook-dot w-2 h-[3px] rounded-full bg-navy/25 transition-all duration-300"></span>
+            <span class="lookbook-dot w-2 h-[3px] rounded-full bg-navy/25 transition-all duration-300"></span>
+            <span class="lookbook-dot w-2 h-[3px] rounded-full bg-navy/25 transition-all duration-300"></span>
         </div>
 
         <!-- ── DESKTOP: editorial magazine layout ── -->
         <div class="hidden md:block w-full max-w-[1200px] mx-auto px-6">
-            <div
-                style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 2fr;grid-template-rows:1fr 1fr;gap:10px;height:780px;"
-            >
+            <div style="display:grid;grid-template-columns:2fr 1.1fr 1.1fr 2fr;grid-template-rows:1fr 1fr;gap:10px;height:780px;">
                 <!-- ZONE 1 — tall left portrait (row-span-2) -->
                 <div
                     class="lookbook-editorial-item fade-in"
@@ -428,11 +404,11 @@ const categories = [
                     fill="currentColor"
                     aria-hidden="true"
                 >
-                    <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                    ></path>
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
                 </svg>
-                <span data-i18n="lookbook.instagram_btn">Seguici su Instagram @amartstore_salerno</span>
+                <span data-i18n="lookbook.instagram_btn">
+                    Seguici su Instagram @amartstore_salerno
+                </span>
             </a>
         </div>
     </section>
