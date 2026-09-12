@@ -1,7 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
-import { products } from "../data/products.ts";
+import { getCollection } from "astro:content";
+
+const rawProducts = await getCollection("products");
+const products = rawProducts.map((p) => ({ id: p.id, ...p.data }));
 
 const categories = [
     { label: "Tutti", filter: "tutti", key: "collezione.filter_all" },
@@ -19,8 +22,8 @@ const categories = [
 ---
 
 <Layout
-    title="Collezione — Amart Store Salerno | La praticità prima di tutto"
-    description="Catalogo Amart Store Salerno — Pantaloni, maglie, top e camicie, abiti, giacche e accessori. Ordini rapidi su WhatsApp con spedizioni 24/48h."
+    title="Collezione Donna Salerno | Abiti, Top, Giacche – Amart Store"
+    description="Esplora la collezione donna di Amart Store Salerno: abiti, top, pantaloni e giacche. Stile curato e pratico. Acquista ora."
     activePage="collezione"
 >
     <!-- ===== PAGE HEADER ===== -->
